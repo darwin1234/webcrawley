@@ -36,6 +36,7 @@
 			<?php $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>
 			submit: function(){
 				$("#webURL").on("submit", function(e){
+					alert($("#webURL").serialize());
 					$.ajax({
 						url: "<?php echo $actual_link; ?>data.php",
 						type: "POST",

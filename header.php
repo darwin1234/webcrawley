@@ -191,12 +191,12 @@
       <h1 class="ui inverted header">
        TEST WEB CRAWL
       </h1>
-      <form id="webURL" action="">
-	  <div class="ui input">
-		  <input type="text" name="webcrawl" placeholder="http://www.example.com">
-	  </div>
-	  
-      <input type="submit" class="ui huge primary button" value="submit">
+      <form id="webURL" action="" >
+		  <div class="ui input">
+			  <input type="text" name="webcrawl" placeholder="http://www.example.com">
+		  </div>
+		  
+		  <input type="submit" name="submit" class="ui huge primary button" value="submit">
 	  </form>
     </div>
 
