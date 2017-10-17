@@ -64,7 +64,10 @@ class HTMLTAGFINDER{
 	
 	
 }
+if(isset($_POST['$_POST["webcrawl"]'])){
+	$webcrawl = $_POST['webcrawl'];
+	 new HTMLTAGFINDER($webcrawl);	
+}
 
 
-new HTMLTAGFINDER('http://duathlon.com');	
 	

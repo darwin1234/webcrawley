@@ -193,7 +193,7 @@
       </h1>
       <form id="webURL" action="" >
 		  <div class="ui input">
-			  <input type="text" name="webcrawl" placeholder="http://www.example.com">
+			  <input type="text" id="webcrawl" name="webcrawl" placeholder="http://www.example.com">
 		  </div>
 		  
 		  <input type="submit" name="submit" class="ui huge primary button" value="submit">
