@@ -22,7 +22,7 @@ class HTMLTAGFINDER{
 		$this->data['counth3'] = count($mypage->find('h3'));
 		$this->data['counth4'] = count($mypage->find('h4'));
 		$this->data['counth5'] = count($mypage->find('h5'));
-		$this->data['counth5'] = count($mypage->find('h6'));
+		$this->data['counth6'] = count($mypage->find('h6'));
 		?>
 			<div id="display"></div>
 			<i class="close icon"></i>
@@ -64,10 +64,10 @@ class HTMLTAGFINDER{
 	
 	
 }
-if(isset($_POST['$_POST["webcrawl"]'])){
+
 	$webcrawl = $_POST['webcrawl'];
 	 new HTMLTAGFINDER($webcrawl);	
-}
+
 
 
 	

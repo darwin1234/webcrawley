@@ -37,17 +37,17 @@
 			submit: function(){
 				$("#webURL").on("submit", function(e){
 					var webcrawl = $("#webcrawl").val();
-					//alert($("#webURL").serialize());
+					$("#loading").show();
 					$.ajax({
 						url: "<?php echo $actual_link; ?>data.php",
 						type: "POST",
 						data:{"webcrawl" : webcrawl},
 						success: function(e){
 
-							
+								
 								$("#siteinformation").html(e);
 								$(".test").modal('show');
-							
+								$("#loading").hide();
 						}
 							
 					

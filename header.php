@@ -116,7 +116,7 @@
       }
     }
 
-
+.ui.inverted.segment, .ui.primary.inverted.segment{background:#15191F!important;}
   </style>
 
   <script src="assets/library/jquery.min.js"></script>
@@ -198,6 +198,7 @@
 		  
 		  <input type="submit" name="submit" class="ui huge primary button" value="submit">
 	  </form>
+	  <img id="loading" src="assets\images\giphy.gif" style="width:150px; display:none;">
     </div>
 
   </div>
