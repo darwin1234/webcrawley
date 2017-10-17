@@ -1,4 +1,5 @@
 <?php require_once('header.php');?>
+<?php require_once('modal.php'); ?>
   <div class="ui vertical stripe segment">
     <div class="ui middle aligned stackable grid container">
       <div class="row">

@@ -27,7 +27,7 @@
   <link rel="stylesheet" type="text/css" href="components/sidebar.css">
   <link rel="stylesheet" type="text/css" href="components/transition.css">
   <link rel="stylesheet" type="text/css" href="components/input.min.css"> 
-
+  <link rel="stylesheet" type="text/css" href="components/modal.min.css"> 
 	
   <style type="text/css">
 

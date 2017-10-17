@@ -1,79 +1,70 @@
 <?php 
-
-include("include/simple_html_dom.php");
-
-class data{
-	private $crawled_urls=array();
-	private $found_urls=array();
+require_once('include/simple_html_dom.php');
 	
-	public function rel2abs($rel, $base){
-		if (parse_url($rel, PHP_URL_SCHEME) != '') return $rel;
-		if ($rel[0]=='#' || $rel[0]=='?') return $base.$rel;
-		extract(parse_url($base));
-		$path = preg_replace('#/[^/]*$#', '', $path);
-		if ($rel[0] == '/') $path = '';
-		$abs = "$host$path/$rel";
-		$re = array('#(/\.?/)#', '#/(?!\.\.)[^/]+/\.\./#');
-		for($n=1; $n>0;$abs=preg_replace($re,'/', $abs,-1,$n)){}
-		$abs=str_replace("../","",$abs);
-		return $scheme.'://'.$abs;
-   }
-   
-   public function perfect_url($u,$b){
-    $bp=parse_url($b);
-    if(($bp['path']!="/" && $bp['path']!="") || $bp['path']==''){
-     if($bp['scheme']==""){$scheme="http";}else{$scheme=$bp['scheme'];}
-     $b=$scheme."://".$bp['host']."/";
-    }
-    if(substr($u,0,2)=="//"){
-     $u="http:".$u;
-    }
-    if(substr($u,0,4)!="http"){
-     $u=$this->rel2abs($u,$b);
-    }
-    return $u;
-   }
-   
-   
-  function crawl_site($u){
-    global $crawled_urls;
-    $uen=urlencode($u);
-    if((array_key_exists($uen,$this->crawled_urls)==0 || $this->crawled_urls[$uen] < date("YmdHis",strtotime('-25 seconds', time())))){
-     $html = file_get_html($u);
-     $this->crawled_urls[$uen]=date("YmdHis");
-     foreach($html->find("a") as $li){
-      $url=$this->perfect_url($li->href,$u);
-      $enurl=urlencode($url);
-      if($url!='' && substr($url,0,4)!="mail" && substr($url,0,4)!="java" && array_key_exists($enurl,$this->found_urls)==0){
-       $this->found_urls[$enurl]=1;
-       echo "<li><a target='_blank' href='".$url."'>".$url."</a></li>";
-      }
-     }
-    }
-   }
+class HTMLTAGFINDER{
+	private $data = array();
+	private $aTag = array();
+	
+	function __construct($url){
+		
+		$mypage=file_get_html($url);
+
+		$title=$mypage->find('title',0);
+		$p=$mypage->find('p');
+		
+		$this->data['WebsiteUrl'] = $url;
+		$this->data['title']  = $title->plaintext; // header title
+		$this->data['countLink'] = count($mypage->find('a'));
+		$this->data['countimg'] = count($mypage->find('img'));
+		$this->data['countp'] = count($mypage->find('p'));
+		$this->data['counth1'] = count($mypage->find('h1'));
+		$this->data['counth2'] = count($mypage->find('h2'));
+		$this->data['counth3'] = count($mypage->find('h3'));
+		$this->data['counth4'] = count($mypage->find('h4'));
+		$this->data['counth5'] = count($mypage->find('h5'));
+		$this->data['counth5'] = count($mypage->find('h6'));
+		?>
+			<div id="display"></div>
+			<i class="close icon"></i>
+			
+			
+			  <div class="header">
+					Website:  <?php echo $this->data['WebsiteUrl']; ?>
+			  </div>
+			  <div class="image content">
+				
+				<div class="description">
+				  <div class="ui header">We've auto-chosen a profile image for you.</div>
+				  <p>Basic Information for <?php echo $this->data['WebsiteUrl']; ?> </p>
+				  <p>Title: <?php echo $this->data['title'];?></p>
+				  <p>Total A: <?php echo $this->data['countLink'];?></p>
+				  <p>Total Image: <?php echo $this->data['countimg'];?></p>
+				  <p>Total P Tag: <?php echo $this->data['countp'];?></p>
+				  <p>Total h1 Tag: <?php echo $this->data['counth1'];?></p>
+				  <p>Total h2 Tag: <?php echo $this->data['counth2'];?></p>
+				  <p>Total h3 Tag: <?php echo $this->data['counth3'];?></p>
+				  <p>Total h4 Tag: <?php echo $this->data['counth4'];?></p>
+				  <p>Total h5 Tag: <?php echo $this->data['counth5'];?></p>
+				  <p>Total h6 Tag: <?php echo $this->data['counth6'];?></p>
+				</div>
+			  </div>
+		  <div class="actions">
+			<div class="ui black deny button">
+			  Nope
+			</div>
+			<div class="ui positive right labeled icon button">
+			  Yep, that's me
+			  <i class="checkmark icon"></i>
+			</div>
+		  </div>
+		
+		<?php
+		
+	}
+	
 	
 }
 
-$t = new data;  
-if(isset($_POST['webcrawl'])){
-	$url=$_POST['webcrawl'];
-	$t->crawl_site($url);
-}
 
-
-/*
-if(isset($_POST['submit'])){
-   
-    if($url==''){
-     echo "<h2>A valid URL please.</h2>";
-    }else{
-		echo "test";
-		$f=fopen("url-crawled.html","a+");
-		fwrite($f,"<div><a href='$url'>$url</a> - ".date("Y-m-d H:i:s")."</div>");
-		fclose($f);
-		echo "<h2>Result - URL's Found</h2><ul style='word-wrap: break-word;width: 400px;line-height: 25px;'>";
-		
-		echo "</ul>";
-		
-    }
-}*/
+new HTMLTAGFINDER('http://duathlon.com');	
+	

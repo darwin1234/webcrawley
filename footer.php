@@ -42,8 +42,10 @@
 						type: "POST",
 						data:$("#webURL").serialize(),
 						success: function(e){
+
 							
-								alert(e);
+								$("#siteinformation").html(e);
+								$(".test").modal('show');
 							
 						}
 							
@@ -53,11 +55,21 @@
 				});
 				
 				
+			},
+			modal: function(){
+				$("#test").click(function(){
+					
+				});
+				$(".test").modal({
+					closable: true
+				});
+				
 			}
 			
 				
 		};
 		webCraw.submit();
+		webCraw.modal();
 	});
 
 	
