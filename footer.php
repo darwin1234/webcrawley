@@ -28,6 +28,26 @@
   </div>
 </div>
 
+<script type="text/javascript">
+
+	$(function(){
+		
+		var webCraw = {
+			
+			submit: function(){
+			
+				alert(1);
+				
+			}
+			
+				
+		};
+		webCraw.submit();
+	});
+
+	
+</script>
+
 </body>
 
 </html>
