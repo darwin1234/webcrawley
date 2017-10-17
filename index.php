@@ -27,7 +27,15 @@
       
       <h3 class="ui header">4. Tell me some of your hobbies and pastimes.</h3>
       <p>One of my hobbies is to play a guitar. i will be performing on 24th day of October..</p>
-  
+		
+		Please check out. :)
+		<audio controls>
+		  <source src="love_thing.mp3" type="audio/mpeg"/>
+		  <source src="love_thing.ogg" type="audio/ogg"/>
+		  <object type="application/x-shockwave-flash" data="media/OriginalMusicPlayer.swf" width="225" height="86"> 
+		   <param name="FlashVars" value="mediaPath=love_thing.mp3" /> 
+		  </object> 
+		</audio>
     </div>
   </div>
 
