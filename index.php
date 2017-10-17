@@ -28,7 +28,7 @@
       <h3 class="ui header">4. Tell me some of your hobbies and pastimes.</h3>
       <p>One of my hobbies is to play a guitar. i will be performing on 24th day of October..</p>
 		
-		Please check out. :)
+		Please check it out. :)
 		<audio controls>
 		  <source src="love_thing.mp3" type="audio/mpeg"/>
 		  <source src="love_thing.ogg" type="audio/ogg"/>
