@@ -211,7 +211,7 @@
       <h1 class="ui inverted header">
        TEST WEB CRAWL
       </h1>
-      <form>
+      <form id="webURL" action="">
 	  <div class="ui input">
 		  <input type="text" name="webcrawl" placeholder="http://www.example.com">
 	  </div>

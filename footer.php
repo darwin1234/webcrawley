@@ -33,10 +33,24 @@
 	$(function(){
 		
 		var webCraw = {
-			
+			<?php $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>
 			submit: function(){
-			
-				alert(1);
+				$("#webURL").on("submit", function(e){
+					$.ajax({
+						url: "<?php echo $actual_link; ?>data.php",
+						type: "POST",
+						data:$("#webURL").serialize(),
+						success: function(e){
+							
+								alert(e);
+							
+						}
+							
+					
+					});
+					e.preventDefault();
+				});
+				
 				
 			}
 			
