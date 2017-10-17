@@ -9,8 +9,14 @@
   <div class="ui vertical stripe segment">
 		<div class="ui text container">
 	
-			<h3>1. What’s your proudest achievement? It can be a personal project or something you’ve worked on professionally. Just a short paragraph is fine, but I’d love to know why you’re proud of it.</h3>
-         
+	   <h3>1. What’s your proudest achievement? It can be a personal project or something you’ve worked on professionally. Just a short paragraph is fine, but I’d love to know why you’re proud of it.</h3>
+         One of the best i work is the a system for our church. i started this project 2016 so it is now 1 year old.
+		 the architecture of this project is MVC.  http://www.cavitecommunitychurch.com/Login/g12Login
+		  you can try to login using this account:
+		  user: felixlabang
+		  password: admin
+		  check out the  screenshot as well :)<br>
+		  <a href="assets/images/CCCG12System.png"><img src="assets/images/CCCG12System.png" style="width:50%;"></a>
 	   <h3>2. Tell me about a time when you disagreed with your boss on a feature or technology used in an application you were coding. How did you overcome the disagreement. Please give me a real example.</h3>
           <p>I've been working on a lot of project specially in wordpress. way back 2009 i studying how to code a wordpres themes from scratch, there was a time that they are using a slider that has a lot of big .js files, i disagreed because this make the websites run slowly in performance. i tell to my boss not to used it. instead find another better plugin or code it from scratch.</p>
        
